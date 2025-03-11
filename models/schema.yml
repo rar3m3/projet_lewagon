@@ -1,0 +1,72 @@
+version: 2
+
+sources:
+  - name: projet_lewagon
+    schema: projet_lewagon
+    tables:
+      - name: J_depense
+        identifier: J_depense
+        description: "Dépenses de Janot présidentiel 2022"
+      - name: J_recette
+        description: "recette de Janot présidentiel 2022"
+      - name: LP_depense
+        description: "Dépenses de Le Pen présidentiel 2022"
+      - name: LP_recette
+        description: "Recette de Le Pen présidentiel 2022"
+      - name: ME_depense
+        description: "Dépenses Mélenchon présidentiel 2022"
+      - name: ME_recette 
+        description: "Recette de Mélenchon présidentiel 2022"
+      - name: M_depense
+        description: "Dépense Macron présidentiel 2022"
+      - name: M_recette
+        description: "Recette Macron présidentiel 2022"
+      - name: antenne_lepen_mars 
+      - name: antenne_lepen_premier_tour 
+      - name: antenne_lepen_second_tour 
+      - name: antenne_macron_mars 
+      - name: antenne_macron_premier_tour 
+      - name: antenne_macron_second_tour 
+      - name: antenne_melenchon_mars 
+      - name: antenne_melenchon_premier_tour 
+      - name: dpl_1999 
+      - name: dpl_2010 
+      - name: dpl_2021 
+      - name: population_1999_clean 
+      - name: population_2006_clean 
+      - name: population_2007_clean 
+      - name: population_2008_clean 
+      - name: population_2009_clean 
+      - name: population_2010_clean 
+      - name: population_2011_clean 
+      - name: population_2012_clean 
+      - name: population_2013_clean 
+      - name: population_2014_clean 
+      - name: population_2015_clean  
+      - name: population_2016_clean 
+      - name: population_2017_clean 
+      - name: population_2018_clean 
+      - name: population_2019_clean 
+      - name: population_2020_clean 
+      - name: population_2021_clean 
+      - name: population_2022_clean 
+      - name: pres2002 
+      - name: pres2007 
+      - name: pres2012 
+      - name: pres2017 
+      - name: pres2022 
+      - name: s_1_2002
+      - name: s_1_2007
+      - name: s_1_2012
+      - name: s_1_2017
+      - name: s_1_2022 
+      - name: s_2_2002
+      - name: s_2_2007
+      - name: s_2_2012
+      - name: s_2_2017
+      - name: s_2_2022
+      - name: soc_pro_1999
+      - name: soc_pro_2010
+      - name: soc_pro_2015
+      - name: soc_pro_2021
+

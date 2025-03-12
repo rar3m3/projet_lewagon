@@ -1,32 +1,32 @@
-with 
+{{ config(
+    materialized='table'
+) }}
 
-source as (
-
-    select * from {{ source('projet_lewagon', 'soc_pro_1999') }}
-
+WITH source AS (
+    SELECT * FROM {{ source('projet_lewagon', 'soc_pro_1999') }}
+WHERE `Region` <> "RR23"
 ),
 
-renamed as (
+renamed AS (
+    SELECT
+        `Region`,
+        `Departement`,
+        `Libelle_de departement`,
+        CAST(`Agriculteurs Actifs_ayant_un_emploi RP1999` AS INTEGER) AS agriculteurs_actifs_ayant_un_emploi_rp1999,
+        CAST(`Agriculteurs Chômeurs RP1999` AS INTEGER) AS agriculteurs_chomeurs_rp1999,
+        CAST(`Artisans__commercants__chefs_d_entreprise Actifs_ayant_un_emploi RP1999` AS INTEGER) AS artisans_commercants_chefs_d_entreprise_actifs_ayant_un_emploi_rp1999,
+        CAST(`Artisans__commercants__chefs_d_entreprise Chômeurs RP1999` AS INTEGER) AS artisans_commercants_chefs_d_entreprise_chomeurs_rp1999,
+        CAST(`Cadres_et_professions_intellectuelles_superieures Actifs_ayant_un_emploi RP1999` AS INTEGER) AS cadres_et_professions_intellectuelles_superieures_actifs_ayant_un_emploi_rp1999,
+        CAST(`Cadres_et_professions_intellectuelles_superieures Chômeurs RP1999` AS INTEGER) AS cadres_et_professions_intellectuelles_superieures_chomeurs_rp1999,
+        CAST(`Professions_intermediaires Actifs_ayant_un_emploi RP1999` AS INTEGER) AS professions_intermediaires_actifs_ayant_un_emploi_rp1999,
+        CAST(`Professions_intermediaires Chômeurs RP1999` AS INTEGER) AS professions_intermediaires_chomeurs_rp1999,
+        CAST(`Employes Actifs_ayant_un_emploi RP1999` AS INTEGER) AS employes_actifs_ayant_un_emploi_rp1999,
+        CAST(`Employes Chômeurs RP1999` AS INTEGER) AS employes_chomeurs_rp1999,
+        CAST(`Ouvriers Actifs_ayant_un_emploi RP1999` AS INTEGER) AS ouvriers_actifs_ayant_un_emploi_rp1999,
+        CAST(`Ouvriers Chômeurs RP1999` AS INTEGER) AS ouvriers_chomeurs_rp1999,
+        
 
-    select
-        region,
-        departement,
-        libelle_de departement,
-        agriculteurs actifs_ayant_un_emploi rp1999,
-        agriculteurs chômeurs rp1999,
-        artisans__commercants__chefs_d_entreprise actifs_ayant_un_emploi rp1999,
-        artisans__commercants__chefs_d_entreprise chômeurs rp1999,
-        cadres_et_professions_intellectuelles_superieures actifs_ayant_un_emploi rp1999,
-        cadres_et_professions_intellectuelles_superieures chômeurs rp1999,
-        professions_intermediaires actifs_ayant_un_emploi rp1999,
-        professions_intermediaires chômeurs rp1999,
-        employes actifs_ayant_un_emploi rp1999,
-        employes chômeurs rp1999,
-        ouvriers actifs_ayant_un_emploi rp1999,
-        ouvriers chômeurs rp1999
-
-    from source
-
+    FROM source
 )
 
-select * from renamed
+SELECT * FROM renamed

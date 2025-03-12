@@ -1,9 +1,13 @@
+{{ config(
+    materialized='view'
+) }}
+
 with 
 
 source as (
 
-    select * from {{ source('projet_lewagon', 'population_2007_clean') }}
-    WHERE population <> "PMUN07"
+    select * from {{ source('projet_lewagon', 'population_2016_clean') }}
+    WHERE population <> "PMUN16"
 
 ),
 

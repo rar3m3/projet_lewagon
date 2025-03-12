@@ -3,6 +3,7 @@ with
 source as (
 
     select * from {{ source('projet_lewagon', 'population_2014_clean') }}
+    WHERE population <> "PMUN14"
 
 ),
 
@@ -10,12 +11,9 @@ renamed as (
 
     select
         code_departement,
-        code_commune,
-        nom_commune,
-        population
-
+        SUM(CAST(population AS FLOAT64)) AS population
     from source
-
+GROUP BY code_departement
 )
 
 select * from renamed

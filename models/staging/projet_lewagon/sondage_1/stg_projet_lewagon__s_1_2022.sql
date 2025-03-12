@@ -9,22 +9,22 @@ source as (
 renamed as (
 
     select
-        index,
-        sondeur,
-        date,
-        échantillon,
-        arthaud_lo,
-        poutou_npa,
-        roussel_pcf,
-        melenchon_lfi,
-        hidalgo_ps,
-        jadot_eélv,
-        macron_lrem,
-        pecresse_lr,
-        lassalle_res,
-        dupont-aignan_dlf,
-        le_pen_rn,
-        zemmour_rec
+        `Index`,
+        Sondeur,
+        `Date`,
+        `Échantillon`,
+        Arthaud_LO,
+        Poutou_NPA,
+        Roussel_PCF,
+        Melenchon_LFI,
+        Hidalgo_PS,
+        `Jadot_EÉLV`,
+        Macron_LREM,
+        Pecresse_LR,
+        `Lassalle_RES`,
+        `Dupont-aignan_DLF`,
+        Le_pen_RN,
+        Zemmour_REC
 
     from source
 

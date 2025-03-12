@@ -21,7 +21,7 @@ sources:
         description: "Dépense Macron présidentiel 2022"
       - name: M_recette
         description: "Recette Macron présidentiel 2022"
-      - name: antenne_lepen_mars 
+      - name: antenne_lepen_mars
       - name: antenne_lepen_premier_tour 
       - name: antenne_lepen_second_tour 
       - name: antenne_macron_mars 

@@ -9,10 +9,10 @@ source as (
 renamed as (
 
     select
-        index,
+        `index`,
         sondeur,
         dates,
-        échantillon,
+        `Échantillon`,
         macron_lrem,
         le_pen_rn
 

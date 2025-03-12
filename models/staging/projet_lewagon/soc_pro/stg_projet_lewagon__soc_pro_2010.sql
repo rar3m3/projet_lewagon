@@ -1,32 +1,32 @@
-with 
+{{ config(
+    materialized='view'
+) }}
 
-source as (
-
-    select * from {{ source('projet_lewagon', 'soc_pro_2010') }}
-
+WITH source AS (
+    SELECT * FROM {{ source('projet_lewagon', 'soc_pro_2010') }}
+WHERE `Region` <> "RR23"
 ),
 
-renamed as (
+renamed AS (
+    SELECT
+        `Region`,
+        `Departement`,
+        `Libelle_de departement`,
+        CAST(`Agriculteurs Actifs_ayant_un_emploi RP2010` AS FLOAT64) AS agriculteurs_actifs_ayant_un_emploi_rp2010,
+        CAST(`Agriculteurs Chômeurs RP2010` AS FLOAT64) AS agriculteurs_chomeurs_rp2010,
+        CAST(`Artisans__commercants__chefs_d_entreprise Actifs_ayant_un_emploi RP2010` AS FLOAT64) AS artisans_commercants_chefs_d_entreprise_actifs_ayant_un_emploi_rp2010,
+        CAST(`Artisans__commercants__chefs_d_entreprise Chômeurs RP2010` AS FLOAT64) AS artisans_commercants_chefs_d_entreprise_chomeurs_rp2010,
+        CAST(`Cadres_et_professions_intellectuelles_superieures Actifs_ayant_un_emploi RP2010` AS FLOAT64) AS cadres_et_professions_intellectuelles_superieures_actifs_ayant_un_emploi_rp2010,
+        CAST(`Cadres_et_professions_intellectuelles_superieures Chômeurs RP2010` AS FLOAT64) AS cadres_et_professions_intellectuelles_superieures_chomeurs_rp2010,
+        CAST(`Professions_intermediaires Actifs_ayant_un_emploi RP2010` AS FLOAT64) AS professions_intermediaires_actifs_ayant_un_emploi_rp2010,
+        CAST(`Professions_intermediaires Chômeurs RP2010` AS FLOAT64) AS professions_intermediaires_chomeurs_rp2010,
+        CAST(`Employes Actifs_ayant_un_emploi RP2010` AS FLOAT64) AS employes_actifs_ayant_un_emploi_rp2010,
+        CAST(`Employes Chômeurs RP2010` AS FLOAT64) AS employes_chomeurs_rp2010,
+        CAST(`Ouvriers Actifs_ayant_un_emploi RP2010` AS FLOAT64) AS ouvriers_actifs_ayant_un_emploi_rp2010,
+        CAST(`Ouvriers Chômeurs RP2010` AS FLOAT64) AS ouvriers_chomeurs_rp2010,
+        
 
-    select
-        region,
-        departement,
-        libelle_de departement,
-        agriculteurs actifs_ayant_un_emploi rp2010,
-        agriculteurs chômeurs rp2010,
-        artisans__commercants__chefs_d_entreprise actifs_ayant_un_emploi rp2010,
-        artisans__commercants__chefs_d_entreprise chômeurs rp2010,
-        cadres_et_professions_intellectuelles_superieures actifs_ayant_un_emploi rp2010,
-        cadres_et_professions_intellectuelles_superieures chômeurs rp2010,
-        professions_intermediaires actifs_ayant_un_emploi rp2010,
-        professions_intermediaires chômeurs rp2010,
-        employes actifs_ayant_un_emploi rp2010,
-        employes chômeurs rp2010,
-        ouvriers actifs_ayant_un_emploi rp2010,
-        ouvriers chômeurs rp2010
-
-    from source
-
+    FROM source
 )
 
-select * from renamed
+SELECT * FROM renamed

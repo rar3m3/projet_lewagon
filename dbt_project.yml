@@ -41,5 +41,3 @@ models:
       +materialized: table
       finance:
         +schema: finance
-query-comment:
-  append: false

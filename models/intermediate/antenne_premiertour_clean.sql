@@ -1,3 +1,6 @@
+{{ config(
+    materialized='table'
+) }}
 WITH all_candidates AS (
     SELECT 
         'Le Pen' AS Candidat, 

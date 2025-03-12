@@ -10,8 +10,8 @@ renamed as (
 
     select
         sondeur,
-        date,
-        françois_hollande,
+        `date`,
+        `françois_hollande`,
         nicolas_sarkozy
 
     from source

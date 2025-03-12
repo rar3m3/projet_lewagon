@@ -10,9 +10,9 @@ renamed as (
 
     select
         sondeur,
-        date,
+        `date`,
         jacques_chirac_rpr,
-        jean-marie_le_pen_fn
+        `jean-marie_le_pen_fn`
 
     from source
 

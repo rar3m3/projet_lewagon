@@ -3,7 +3,7 @@
 ) }}
 
 WITH source AS (
-    SELECT * FROM {{ ref('stg_projet_lewagon__soc_pro_2015') }}
+    SELECT * FROM {{ ref('intermediate_soc_pro_2015') }}
 ),
 
 renamed AS (

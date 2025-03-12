@@ -13,16 +13,11 @@ renamed as (
         Sondeur,
         `Date`,
         `Échantillon`,
-        Arthaud_LO,
-        Poutou_NPA,
-        Roussel_PCF,
         Melenchon_LFI,
         Hidalgo_PS,
         `Jadot_EÉLV`,
         Macron_LREM,
         Pecresse_LR,
-        `Lassalle_RES`,
-        `Dupont-aignan_DLF`,
         Le_pen_RN,
         Zemmour_REC
 

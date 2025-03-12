@@ -8,15 +8,14 @@ source as (
 
 renamed as (
 
-    select
-        string_field_0,
-        string_field_1,
-        string_field_2,
-        string_field_3,
-        string_field_4,
-        string_field_5
-
-    from source
+SELECT 
+    string_field_0 AS compte,
+    LOWER(REGEXP_REPLACE(NORMALIZE(`string_field_1`, NFD), r'\p{M}', '')) AS intitule_de_compte,
+    IFNULL(SAFE_CAST(REPLACE(REPLACE(`string_field_2`, " ", ""), ",", ".") AS FLOAT64), 0) AS recettes_percues_par_le_mandataire,
+    IFNULL(SAFE_CAST(string_field_3 AS INT64), 0) AS paiement_payees_par_la_formation_politique,
+    IFNULL(SAFE_CAST(REPLACE(REPLACE(`string_field_4`, " ", ""), ",", ".") AS FLOAT64), 0) AS concours_en_nature,
+    IFNULL(SAFE_CAST(REPLACE(REPLACE(`string_field_5`, " ", ""), ",", ".") AS FLOAT64), 0) AS totaux
+FROM source
 
 )
 

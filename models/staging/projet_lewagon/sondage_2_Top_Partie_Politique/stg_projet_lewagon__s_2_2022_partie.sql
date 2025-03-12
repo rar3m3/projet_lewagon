@@ -9,12 +9,21 @@ source as (
 renamed as (
 
     select
-        `index`,
         sondeur,
         dates,
         `Échantillon`,
-        macron_lrem AS centre_udf,
-        le_pen_rn AS ext_droite_fn
+SAFE_CAST(REPLACE(
+    CASE 
+        WHEN LENGTH(macron_lrem) > 2 THEN SUBSTR(macron_lrem, 1, LENGTH(macron_lrem) - 2)
+        ELSE macron_lrem
+    END, ',', '.') AS FLOAT64) AS centre_udf,
+
+SAFE_CAST(REPLACE(
+    CASE 
+        WHEN LENGTH(le_pen_rn) > 2 THEN SUBSTR(le_pen_rn, 1, LENGTH(le_pen_rn) - 2)
+        ELSE le_pen_rn
+    END, ',', '.') AS FLOAT64) AS ext_droite_fn
+
 
     from source
 

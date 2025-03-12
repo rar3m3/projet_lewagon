@@ -13,13 +13,48 @@ renamed as (
         Sondeur,
         `Date`,
         `Échantillon`,
-        Melenchon_LFI AS gauche_lfi,
-        Hidalgo_PS AS gauche_ps,
-        `Jadot_EÉLV`AS gauche_eelv,
-        Macron_LREM AS centre_lrem,
-        Pecresse_LR AS droite_lr,
-        Le_pen_RN AS ext_droite_rn,
-        Zemmour_REC AS ext_droite_rec
+        SAFE_CAST(REPLACE(
+        CASE 
+            WHEN LENGTH(Melenchon_LFI) > 2 THEN SUBSTR(Melenchon_LFI, 1, LENGTH(Melenchon_LFI) - 2)
+            ELSE Melenchon_LFI
+        END, ',', '.') AS FLOAT64) AS gauche_lfi,
+
+    SAFE_CAST(REPLACE(
+        CASE 
+            WHEN LENGTH(Hidalgo_PS) > 2 THEN SUBSTR(Hidalgo_PS, 1, LENGTH(Hidalgo_PS) - 2)
+            ELSE Hidalgo_PS
+        END, ',', '.') AS FLOAT64) AS gauche_ps,
+
+    SAFE_CAST(REPLACE(
+        CASE 
+            WHEN LENGTH(`Jadot_EÉLV`) > 2 THEN SUBSTR(`Jadot_EÉLV`, 1, LENGTH(`Jadot_EÉLV`) - 2)
+            ELSE `Jadot_EÉLV`
+        END, ',', '.') AS FLOAT64) AS gauche_eelv,
+
+    SAFE_CAST(REPLACE(
+        CASE 
+            WHEN LENGTH(Macron_LREM) > 2 THEN SUBSTR(Macron_LREM, 1, LENGTH(Macron_LREM) - 2)
+            ELSE Macron_LREM
+        END, ',', '.') AS FLOAT64) AS centre_lrem,
+
+    SAFE_CAST(REPLACE(
+        CASE 
+            WHEN LENGTH(Pecresse_LR) > 2 THEN SUBSTR(Pecresse_LR, 1, LENGTH(Pecresse_LR) - 2)
+            ELSE Pecresse_LR
+        END, ',', '.') AS FLOAT64) AS droite_lr,
+
+    SAFE_CAST(REPLACE(
+        CASE 
+            WHEN LENGTH(Le_pen_RN) > 2 THEN SUBSTR(Le_pen_RN, 1, LENGTH(Le_pen_RN) - 2)
+            ELSE Le_pen_RN
+        END, ',', '.') AS FLOAT64) AS ext_droite_rn,
+
+    SAFE_CAST(REPLACE(
+        CASE 
+            WHEN LENGTH(Zemmour_REC) > 2 THEN SUBSTR(Zemmour_REC, 1, LENGTH(Zemmour_REC) - 2)
+            ELSE Zemmour_REC
+        END, ',', '.') AS FLOAT64) AS ext_droite_rec
+
 
     from source
 

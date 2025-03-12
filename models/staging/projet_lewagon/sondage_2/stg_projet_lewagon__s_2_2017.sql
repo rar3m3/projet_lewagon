@@ -9,10 +9,10 @@ source as (
 renamed as (
 
     select
-        index,
+        `index`,
         sondeur,
-        date,
-        échantillon,
+        `date`,
+        `Échantillon`,
         abstention,
         indecis_echantillon,
         emmanuel_macron,

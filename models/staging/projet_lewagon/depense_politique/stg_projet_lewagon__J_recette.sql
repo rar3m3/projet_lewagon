@@ -8,15 +8,9 @@ source as (
 
 renamed as (
 
-    select
-        compte,
-        intitulé de compte,
-        1 recettes perçues par le mandataire,
-        2 paiement par les formations politiques,
-        3 concours en nature,
-        4 totaux
-
-    from source
+ SELECT 
+  `1 Dépenses payées par le mandataire` AS depenses_payees_mandataire
+FROM source;
 
 )
 

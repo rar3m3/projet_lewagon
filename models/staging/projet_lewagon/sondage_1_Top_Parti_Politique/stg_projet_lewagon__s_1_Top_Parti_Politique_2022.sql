@@ -13,18 +13,13 @@ renamed as (
         Sondeur,
         `Date`,
         `Échantillon`,
-        Arthaud_LO,
-        Poutou_NPA,
-        Roussel_PCF,
-        Melenchon_LFI,
-        Hidalgo_PS,
-        `Jadot_EÉLV`,
-        Macron_LREM,
-        Pecresse_LR,
-        `Lassalle_RES`,
-        `Dupont-aignan_DLF`,
-        Le_pen_RN,
-        Zemmour_REC
+        Melenchon_LFI AS gauche_lfi,
+        Hidalgo_PS AS gauche_ps,
+        `Jadot_EÉLV`AS gauche_eelv,
+        Macron_LREM AS centre_lrem,
+        Pecresse_LR AS droite_lr,
+        Le_pen_RN AS ext_droite_rn,
+        Zemmour_REC AS ext_droite_rec
 
     from source
 

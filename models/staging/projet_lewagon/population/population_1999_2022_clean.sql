@@ -1,3 +1,7 @@
+{{ config(
+    materialized='table'
+) }}
+
 SELECT
     pop1999.code_departement,
     pop1999.population AS population1999, 
@@ -19,55 +23,55 @@ SELECT
     pop2021.population AS population2021,
     pop2022.population AS population2022  
 FROM
-    {{ source('projet_lewagon', 'population_1999_clean') }} AS pop1999
+    {{ ref('stg_projet_lewagon__population_1999_clean') }} AS pop1999
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2006_clean') }} AS pop2006
+    {{ ref('stg_projet_lewagon__population_2006_clean') }} AS pop2006
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2007_clean') }} AS pop2007
+    {{ ref('stg_projet_lewagon__population_2007_clean') }} AS pop2007
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2008_clean') }} AS pop2008
+    {{ ref('stg_projet_lewagon__population_2008_clean') }} AS pop2008
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2009_clean') }} AS pop2009
+    {{ ref('stg_projet_lewagon__population_2009_clean') }} AS pop2009
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2010_clean') }} AS pop2010
+    {{ ref('stg_projet_lewagon__population_2010_clean') }} AS pop2010
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2011_clean') }} AS pop2011
+    {{ ref('stg_projet_lewagon__population_2011_clean') }} AS pop2011
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2012_clean') }} AS pop2012
+    {{ ref('stg_projet_lewagon__population_2012_clean') }} AS pop2012
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2013_clean') }} AS pop2013
+    {{ ref('stg_projet_lewagon__population_2013_clean') }} AS pop2013
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2014_clean') }} AS pop2014
+    {{ ref('stg_projet_lewagon__population_2014_clean') }} AS pop2014
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2015_clean') }} AS pop2015
+    {{ ref('stg_projet_lewagon__population_2015_clean') }} AS pop2015
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2016_clean') }} AS pop2016
+    {{ ref('stg_projet_lewagon__population_2016_clean') }} AS pop2016
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2017_clean') }} AS pop2017
+    {{ ref('stg_projet_lewagon__population_2017_clean') }} AS pop2017
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2018_clean') }} AS pop2018
+    {{ ref('stg_projet_lewagon__population_2018_clean') }} AS pop2018
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2019_clean') }} AS pop2019
+    {{ ref('stg_projet_lewagon__population_2019_clean') }} AS pop2019
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2020_clean') }} AS pop2020
+    {{ ref('stg_projet_lewagon__population_2020_clean') }} AS pop2020
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2021_clean') }} AS pop2021
+    {{ ref('stg_projet_lewagon__population_2021_clean') }} AS pop2021
     USING (code_departement)
 LEFT JOIN
-    {{ source('projet_lewagon', 'population_2022_clean') }} AS pop2022
+    {{ ref('stg_projet_lewagon__population_2022_clean') }} AS pop2022
     USING (code_departement)

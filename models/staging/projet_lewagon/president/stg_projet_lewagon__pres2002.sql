@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        dep,
+        CONCAT('FR-',dep) AS code_departement,
         nomdep,
         codecommune,
         nomcommune,

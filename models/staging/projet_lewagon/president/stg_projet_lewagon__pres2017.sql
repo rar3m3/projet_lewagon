@@ -13,7 +13,7 @@ source as (
 renamed as (
 
     select
-        CONCAT('FR-',dep) AS code_departement,
+        CONCAT('FR-',LPAD(dep, 2, '0')) AS code_departement,
         nomdep,
         codecommune,
         nomcommune,

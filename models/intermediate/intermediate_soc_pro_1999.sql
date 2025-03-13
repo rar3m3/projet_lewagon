@@ -11,7 +11,7 @@ renamed AS (
     SELECT
         `Region`,
         `Departement`,
-        `Libelle_de departement`,
+        `Libelle_de departement` AS Libelle_de_departement,
         CAST(`Agriculteurs Actifs_ayant_un_emploi RP1999` AS INTEGER) AS agriculteurs_actifs_ayant_un_emploi_rp1999,
         CAST(`Agriculteurs Chômeurs RP1999` AS INTEGER) AS agriculteurs_chomeurs_rp1999,
         CAST(`Artisans__commercants__chefs_d_entreprise Actifs_ayant_un_emploi RP1999` AS INTEGER) AS artisans_commercants_chefs_d_entreprise_actifs_ayant_un_emploi_rp1999,

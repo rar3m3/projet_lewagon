@@ -11,7 +11,7 @@ renamed AS (
     SELECT
         `Region`,
         `Departement`,
-        `Libelle_de departement`,
+        `Libelle_de departement` AS Libelle_de_departement,
         CAST(`Agriculteurs Actifs_ayant_un_emploi RP2021` AS FLOAT64) AS agriculteurs_actifs_ayant_un_emploi_rp2021,
         CAST(`Agriculteurs Chômeurs RP2021` AS FLOAT64) AS agriculteurs_chomeurs_rp2021,
         CAST(`Artisans__commercants__chefs_d_entreprise Actifs_ayant_un_emploi RP2021` AS FLOAT64) AS artisans_commercants_chefs_d_entreprise_actifs_ayant_un_emploi_rp2021,

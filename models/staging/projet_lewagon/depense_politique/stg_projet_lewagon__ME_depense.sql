@@ -7,7 +7,8 @@ source as (
 ),
 
 renamed as (
-    SELECT 
+    SELECT
+    'Melenchon' AS nom_candida,
     string_field_0 AS compte,
     LOWER(REGEXP_REPLACE(NORMALIZE(string_field_1, NFD), r'\p{M}', '')) AS intitule_de_compte,
     IFNULL(SAFE_CAST(REPLACE(REPLACE(string_field_2, " ", ""), ",", ".") AS FLOAT64), 0) AS depense_payees_par_le_mandataire,

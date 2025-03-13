@@ -3,7 +3,7 @@
 ) }}
 
 SELECT
-    pop1999.code_departement,
+    CONCAT('FR-',pop1999.code_departement) AS code_departement,
     pop1999.population AS population1999, 
     pop2006.population AS population2006,
     pop2007.population AS population2007,

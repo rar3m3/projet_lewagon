@@ -8,7 +8,8 @@ source as (
 
 renamed as (
 
-SELECT 
+SELECT
+    'Le_Pen' AS nom_candidat,
     compte,
     LOWER(REGEXP_REPLACE(NORMALIZE(`Intitulé de compte`, NFD), r'\p{M}', '')) AS intitule_de_compte,
     IFNULL(SAFE_CAST(REPLACE(REPLACE(`1 Recettes perçues par le mandataire`, " ", ""), ",", ".") AS FLOAT64), 0) AS recettes_percues_par_le_mandataire,

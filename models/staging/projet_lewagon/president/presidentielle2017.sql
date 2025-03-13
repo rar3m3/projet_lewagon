@@ -3,7 +3,7 @@
 ) }}
 
 WITH source AS (
-  SELECT * FROM {{ source('projet_lewagon', 'pres2017') }}
+  SELECT * FROM {{ ref('stg_projet_lewagon__pres2017') }}
 ),
 renamed AS (
   WITH aggregated_data AS (

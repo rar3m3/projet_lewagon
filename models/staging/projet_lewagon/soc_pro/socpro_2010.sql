@@ -10,7 +10,7 @@ renamed AS (
     SELECT
         `Region`,
         `Departement`,
-        `Libelle_de departement`,
+        `Libelle_de_departement`,
         (agriculteurs_actifs_ayant_un_emploi_rp2010 +
          artisans_commercants_chefs_d_entreprise_actifs_ayant_un_emploi_rp2010 +
          cadres_et_professions_intellectuelles_superieures_actifs_ayant_un_emploi_rp2010 +

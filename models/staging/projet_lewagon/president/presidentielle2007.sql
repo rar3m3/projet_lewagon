@@ -8,7 +8,7 @@ WITH source AS (
 renamed AS (
   WITH aggregated_data AS (
     SELECT
-      CONCAT('FR-', dep) AS code_departement,
+     code_departement,
       SUM(inscrits) AS inscrits,
       SUM(votants) AS votants,
       SUM(exprimes) AS exprimes,
@@ -28,7 +28,7 @@ renamed AS (
       SUM(voixT2SARKOZY) AS T2SARKOZY
     FROM 
       source
-    GROUP BY dep
+    GROUP BY code_departement
   )
   SELECT 
     ad.*,

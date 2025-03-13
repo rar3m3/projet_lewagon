@@ -1,3 +1,6 @@
+{{ config(
+    materialized='table'
+) }}
 with 
 
 source as (
@@ -9,7 +12,8 @@ source as (
 renamed as (
 
     
-    SELECT 
+    SELECT
+        'Jadot' AS nom_candidat,
         compte,
         LOWER(REGEXP_REPLACE(NORMALIZE(`Intitulé de compte`, NFD), r'\p{M}', '')) AS intitule_de_compte,
         IFNULL(SAFE_CAST(REPLACE(REPLACE(`1 Dépenses payées par le mandataire`, " ", ""), ",", ".") AS FLOAT64), 0) AS depense_payees_par_le_mandataire,

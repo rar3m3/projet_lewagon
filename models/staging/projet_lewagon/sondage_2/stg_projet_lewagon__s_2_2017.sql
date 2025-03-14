@@ -13,6 +13,7 @@ source as (
 renamed as (
 
     select
+        "2017" AS annee,
         sondeur,
         `date`,
         `Échantillon`,

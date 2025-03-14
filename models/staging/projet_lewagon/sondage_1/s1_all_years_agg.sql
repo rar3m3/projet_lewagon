@@ -1,3 +1,8 @@
+
+{{ config(
+    materialized='table'
+) }}
+
 WITH agg_table AS (
     select
         PARSE_DATE('%Y',annee) AS annee,

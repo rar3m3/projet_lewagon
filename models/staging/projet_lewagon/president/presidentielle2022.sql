@@ -25,7 +25,9 @@ renamed AS (
       SUM(voixzemmour) AS zemmour,
       SUM(voixdupontaignan) AS dupontaignan,
       SUM(voixmlepen) AS mlepen,
-      SUM(voixt2macron) AS t2macron
+      SUM(voixt2macron) AS t2macron,
+      SUM(voixt2mlepen) AS t2mlepen,
+
     FROM 
       source
     GROUP BY code_departement

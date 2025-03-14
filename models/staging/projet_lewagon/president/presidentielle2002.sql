@@ -8,6 +8,7 @@ WITH source AS (
 renamed AS (
   WITH aggregated_data AS (
     SELECT
+      "2002" AS annee,
       code_departement,
       SUM(inscrits) AS inscrits,
       SUM(votants) AS votants,

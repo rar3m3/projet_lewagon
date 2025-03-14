@@ -32,7 +32,7 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`Jadot_EÉLV`) > 2 THEN SUBSTR(`Jadot_EÉLV`, 1, LENGTH(`Jadot_EÉLV`) - 2)
         ELSE `Jadot_EÉLV`
-    END, ',', '.') AS FLOAT64) AS `Jadot_EÉLV`,
+    END, ',', '.') AS FLOAT64) AS `Jadot_EELV`,
 
 SAFE_CAST(REPLACE(
     CASE 

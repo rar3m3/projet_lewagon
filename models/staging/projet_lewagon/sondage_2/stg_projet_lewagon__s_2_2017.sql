@@ -33,13 +33,13 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(emmanuel_macron) > 2 THEN SUBSTR(emmanuel_macron, 1, LENGTH(emmanuel_macron) - 2)
         ELSE emmanuel_macron
-    END, ',', '.') AS FLOAT64) AS emmanuel_macron,
+    END, ',', '.') AS FLOAT64) AS macron,
 
 SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(marine_le_pen) > 2 THEN SUBSTR(marine_le_pen, 1, LENGTH(marine_le_pen) - 2)
         ELSE marine_le_pen
-    END, ',', '.') AS FLOAT64) AS marine_le_pen
+    END, ',', '.') AS FLOAT64) AS le_pen
 
 
     from source

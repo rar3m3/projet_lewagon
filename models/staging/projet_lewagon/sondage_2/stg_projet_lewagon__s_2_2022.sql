@@ -21,13 +21,13 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(macron_lrem) > 2 THEN SUBSTR(macron_lrem, 1, LENGTH(macron_lrem) - 2)
         ELSE macron_lrem
-    END, ',', '.') AS FLOAT64) AS macron_lrem,
+    END, ',', '.') AS FLOAT64) AS macron,
 
 SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(le_pen_rn) > 2 THEN SUBSTR(le_pen_rn, 1, LENGTH(le_pen_rn) - 2)
         ELSE le_pen_rn
-    END, ',', '.') AS FLOAT64) AS le_pen_rn
+    END, ',', '.') AS FLOAT64) AS le_pen
 
 
     from source

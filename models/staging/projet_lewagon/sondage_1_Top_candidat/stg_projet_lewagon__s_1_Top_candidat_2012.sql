@@ -19,13 +19,13 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`jean-luc_melenchon_fg`) > 2 THEN SUBSTR(`jean-luc_melenchon_fg`, 1, LENGTH(`jean-luc_melenchon_fg`) - 2)
         ELSE `jean-luc_melenchon_fg`
-    END, ',', '.') AS FLOAT64) AS `jean-luc_melenchon_fg`,
+    END, ',', '.') AS FLOAT64) AS `jean_luc_melenchon_fg`,
 
 SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`françois_hollande_ps`) > 2 THEN SUBSTR(`françois_hollande_ps`, 1, LENGTH(`françois_hollande_ps`) - 2)
         ELSE `françois_hollande_ps`
-    END, ',', '.') AS FLOAT64) AS `françois_hollande_ps`,
+    END, ',', '.') AS FLOAT64) AS `francois_hollande_ps`,
 
 SAFE_CAST(REPLACE(
     CASE 
@@ -37,7 +37,7 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`françois_bayrou_modem`) > 2 THEN SUBSTR(`françois_bayrou_modem`, 1, LENGTH(`françois_bayrou_modem`) - 2)
         ELSE `françois_bayrou_modem`
-    END, ',', '.') AS FLOAT64) AS `françois_bayrou_modem`,
+    END, ',', '.') AS FLOAT64) AS `francois_bayrou_modem`,
 
 SAFE_CAST(REPLACE(
     CASE 

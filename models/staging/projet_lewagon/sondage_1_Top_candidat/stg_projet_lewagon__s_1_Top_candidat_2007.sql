@@ -31,7 +31,7 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`françois_bayrou_udf`) > 2 THEN SUBSTR(`françois_bayrou_udf`, 1, LENGTH(`françois_bayrou_udf`) - 2)
         ELSE `françois_bayrou_udf`
-    END, ',', '.') AS FLOAT64) AS `françois_bayrou_udf`,
+    END, ',', '.') AS FLOAT64) AS `francois_bayrou_udf`,
 
 SAFE_CAST(REPLACE(
     CASE 
@@ -43,7 +43,7 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`jean-marie_le_pen_fn`) > 2 THEN SUBSTR(`jean-marie_le_pen_fn`, 1, LENGTH(`jean-marie_le_pen_fn`) - 2)
         ELSE `jean-marie_le_pen_fn`
-    END, ',', '.') AS FLOAT64) AS `jean-marie_le_pen_fn`
+    END, ',', '.') AS FLOAT64) AS `jean_marie_le_pen_fn`
 
 
     from source

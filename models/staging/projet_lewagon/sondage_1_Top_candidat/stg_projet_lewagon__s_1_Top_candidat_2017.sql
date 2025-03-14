@@ -32,13 +32,13 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`jean-luc_melenchon_lfi`) > 2 THEN SUBSTR(`jean-luc_melenchon_lfi`, 1, LENGTH(`jean-luc_melenchon_lfi`) - 2)
         ELSE `jean-luc_melenchon_lfi`
-    END, ',', '.') AS FLOAT64) AS `jean-luc_melenchon_lfi`,
+    END, ',', '.') AS FLOAT64) AS `jean_luc_melenchon_lfi`,
 
 SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`benoît_hamon_ps`) > 2 THEN SUBSTR(`benoît_hamon_ps`, 1, LENGTH(`benoît_hamon_ps`) - 2)
         ELSE `benoît_hamon_ps`
-    END, ',', '.') AS FLOAT64) AS `benoît_hamon_ps`,
+    END, ',', '.') AS FLOAT64) AS `benoit_hamon_ps`,
 
 SAFE_CAST(REPLACE(
     CASE 
@@ -50,7 +50,7 @@ SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`françois_fillon_lr`) > 2 THEN SUBSTR(`françois_fillon_lr`, 1, LENGTH(`françois_fillon_lr`) - 2)
         ELSE `françois_fillon_lr`
-    END, ',', '.') AS FLOAT64) AS `françois_fillon_lr`,
+    END, ',', '.') AS FLOAT64) AS `francois_fillon_lr`,
 
 SAFE_CAST(REPLACE(
     CASE 

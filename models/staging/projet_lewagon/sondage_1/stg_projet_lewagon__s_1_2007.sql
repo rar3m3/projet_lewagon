@@ -13,6 +13,7 @@ source as (
 renamed as (
 
 select
+    "2007" AS annee,
     sondeur,
     `date`,
            SAFE_CAST(REPLACE(

@@ -12,10 +12,14 @@ source as (
 
 renamed as (
 
-    select
-        *
-    from source
+select
+    "2002" AS annee,
+    *
+from source
+
+
+
+
 
 )
-
 select * from renamed

@@ -13,13 +13,14 @@ source as (
 renamed as (
 
     select
+        "2012" AS annee,
         sondeur,
         `date`,
 SAFE_CAST(REPLACE(
     CASE 
         WHEN LENGTH(`françois_hollande`) > 2 THEN SUBSTR(`françois_hollande`, 1, LENGTH(`françois_hollande`) - 2)
         ELSE `françois_hollande`
-    END, ',', '.') AS FLOAT64) AS `françois_hollande`,
+    END, ',', '.') AS FLOAT64) AS `francois_hollande`,
 
 SAFE_CAST(REPLACE(
     CASE 

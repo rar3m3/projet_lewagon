@@ -1,6 +1,3 @@
-{{ config(
-    materialized='table'
-) }}
 
 WITH source AS (
   SELECT * FROM {{ ref('stg_projet_lewagon__pres2012') }}

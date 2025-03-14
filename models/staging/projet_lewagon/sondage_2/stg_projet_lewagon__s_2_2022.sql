@@ -13,6 +13,7 @@ source as (
 renamed as (
 
     select
+        "2022" AS annee,
         sondeur,
         dates,
         `Échantillon`,

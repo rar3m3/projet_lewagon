@@ -1,8 +1,4 @@
 
-WITH source AS (
-  SELECT * FROM {{ ref('stg_projet_lewagon__pres2022') }}
-),
-renamed AS (
   WITH aggregated_data AS (
     SELECT
       "2022" AS annee,
@@ -26,7 +22,7 @@ renamed AS (
       SUM(voixt2mlepen) AS t2mlepen,
 
     FROM 
-      source
+      {{ ref('stg_projet_lewagon__pres2022') }}
     GROUP BY code_departement
   )
   SELECT 
@@ -47,10 +43,11 @@ renamed AS (
       STRUCT('pecresse' AS column_name, pecresse AS value),
       STRUCT('zemmour' AS column_name, zemmour AS value),
       STRUCT('dupontaignan' AS column_name, dupontaignan AS value),
-      STRUCT('mlepen' AS column_name, mlepen AS value)
+      STRUCT('le_pen' AS column_name, mlepen AS value)
     ]) x,
     UNNEST([ 
-      STRUCT('t2macron' AS column_name, t2macron AS value)
+      STRUCT('macron' AS column_name, t2macron AS value),
+      STRUCT('le_pen' AS column_name, t2mlepen AS value)
     ]) x2
   WHERE 
     x.value = GREATEST(
@@ -63,6 +60,3 @@ renamed AS (
     x2.value = GREATEST(
       t2macron
     )
-)
-SELECT * 
-FROM renamed

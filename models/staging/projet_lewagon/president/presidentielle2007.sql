@@ -1,31 +1,27 @@
 
-WITH source AS (
-  SELECT * FROM {{ ref('stg_projet_lewagon__pres2007') }}
-),
-renamed AS (
-  WITH aggregated_data AS (
+WITH aggregated_data AS (
     SELECT
       "2007" AS annee,
      code_departement,
       SUM(inscrits) AS inscrits,
       SUM(votants) AS votants,
       SUM(exprimes) AS exprimes,
-      SUM(voixLAGUILLER) AS LAGUILLER,
-      SUM(voixBESANCENOT) AS BESANCENOT,
-      SUM(voixSCHIVARDI) AS SCHIVARDI,
-      SUM(voixBUFFET) AS BUFFET,
-      SUM(voixBOVE) AS BOVE,
-      SUM(voixVOYNET) AS VOYNET,
-      SUM(voixROYAL) AS ROYAL,
-      SUM(voixNIHOUS) AS NIHOUS,
-      SUM(voixBAYROU) AS BAYROU,
-      SUM(voixSARKOZY) AS SARKOZY,
-      SUM(voixVILLIERS) AS VILLIERS,
-      SUM(voixLEPEN) AS LEPEN,
-      SUM(voixT2ROYAL) AS T2ROYAL,
-      SUM(voixT2SARKOZY) AS T2SARKOZY
+      SUM(voixLAGUILLER) AS laguiller,
+      SUM(voixBESANCENOT) AS besancenot,
+      SUM(voixSCHIVARDI) AS schivardi,
+      SUM(voixBUFFET) AS buffet,
+      SUM(voixBOVE) AS bove,
+      SUM(voixVOYNET) AS voynet,
+      SUM(voixROYAL) AS royal,
+      SUM(voixNIHOUS) AS nihous,
+      SUM(voixBAYROU) AS bayrou,
+      SUM(voixSARKOZY) AS sarkozy,
+      SUM(voixVILLIERS) AS villiers,
+      SUM(voixLEPEN) AS le_pen,
+      SUM(voixT2ROYAL) AS t2royal,
+      SUM(voixT2SARKOZY) AS t2sarkozy
     FROM 
-      source
+      {{ ref('stg_projet_lewagon__pres2007') }}
     GROUP BY code_departement
   )
   SELECT 
@@ -35,35 +31,33 @@ renamed AS (
   FROM 
     aggregated_data ad,
     UNNEST([ 
-      STRUCT('LAGUILLER' AS column_name, LAGUILLER AS value),
-      STRUCT('BESANCENOT' AS column_name, BESANCENOT AS value),
-      STRUCT('SCHIVARDI' AS column_name, SCHIVARDI AS value),
-      STRUCT('BUFFET' AS column_name, BUFFET AS value),
-      STRUCT('BOVE' AS column_name, BOVE AS value),
-      STRUCT('VOYNET' AS column_name, VOYNET AS value),
-      STRUCT('ROYAL' AS column_name, ROYAL AS value),
-      STRUCT('NIHOUS' AS column_name, NIHOUS AS value),
-      STRUCT('BAYROU' AS column_name, BAYROU AS value),
-      STRUCT('SARKOZY' AS column_name, SARKOZY AS value),
-      STRUCT('VILLIERS' AS column_name, VILLIERS AS value),
-      STRUCT('LEPEN' AS column_name, LEPEN AS value)
+      STRUCT('laguiller' AS column_name, laguiller AS value),
+      STRUCT('besancenot' AS column_name, besancenot AS value),
+      STRUCT('schivardi' AS column_name, schivardi AS value),
+      STRUCT('buffet' AS column_name, buffet AS value),
+      STRUCT('bove' AS column_name, bove AS value),
+      STRUCT('voynet' AS column_name, voynet AS value),
+      STRUCT('royal' AS column_name, royal AS value),
+      STRUCT('nihous' AS column_name, nihous AS value),
+      STRUCT('bayrou' AS column_name, bayrou AS value),
+      STRUCT('sarkozy' AS column_name, sarkozy AS value),
+      STRUCT('villiers' AS column_name, villiers AS value),
+      STRUCT('le_pen' AS column_name, le_pen AS value)
     ]) x,
     UNNEST([ 
-      STRUCT('T2ROYAL' AS column_name, T2ROYAL AS value),
-      STRUCT('T2SARKOZY' AS column_name, T2SARKOZY AS value)
+      STRUCT('royal' AS column_name, t2royal AS value),
+      STRUCT('sarkozy' AS column_name, t2sarkozy AS value)
     ]) x2
   WHERE 
     x.value = GREATEST(
-      LAGUILLER, BESANCENOT, SCHIVARDI, 
-      BUFFET, BOVE, VOYNET, 
-      ROYAL, NIHOUS, BAYROU, 
-      SARKOZY, VILLIERS, LEPEN
+      laguiller, besancenot, schivardi, 
+      buffet, bove, voynet, 
+      royal, nihous, bayrou, 
+      sarkozy, villiers, le_pen
     )
     AND 
     x2.value = GREATEST(
-      T2ROYAL, 
-      T2SARKOZY
+      t2royal, 
+      t2sarkozy
     )
-)
-SELECT * 
-FROM renamed
+

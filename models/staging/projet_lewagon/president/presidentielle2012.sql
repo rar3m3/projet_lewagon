@@ -1,8 +1,4 @@
 
-WITH source AS (
-  SELECT * FROM {{ ref('stg_projet_lewagon__pres2012') }}
-),
-renamed AS (
   WITH aggregated_data AS (
     SELECT
       "2012" AS annee,
@@ -23,7 +19,7 @@ renamed AS (
       SUM(voixt2hollande) AS t2hollande,
       SUM(voixt2sarkozy) AS t2sarkozy
     FROM 
-      source
+      {{ ref('stg_projet_lewagon__pres2012') }}
     GROUP BY code_departement
   )
   SELECT 
@@ -45,8 +41,8 @@ renamed AS (
       STRUCT('mlepen' AS column_name, mlepen AS value)
     ]) x,
     UNNEST([ 
-      STRUCT('t2hollande' AS column_name, t2hollande AS value),
-      STRUCT('t2sarkozy' AS column_name, t2sarkozy AS value)
+      STRUCT('hollande' AS column_name, t2hollande AS value),
+      STRUCT('sarkozy' AS column_name, t2sarkozy AS value)
     ]) x2
   WHERE 
     x.value = GREATEST(
@@ -60,6 +56,3 @@ renamed AS (
       t2hollande, 
       t2sarkozy
     )
-)
-SELECT * 
-FROM renamed

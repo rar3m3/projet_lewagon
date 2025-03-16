@@ -1,8 +1,4 @@
 
-WITH source AS (
-  SELECT * FROM {{ ref('stg_projet_lewagon__pres2017') }}
-),
-renamed AS (
   WITH aggregated_data AS (
     SELECT
       "2017" AS annee,
@@ -20,11 +16,11 @@ renamed AS (
       SUM(voixfillon) AS fillon,
       SUM(voixasselineau) AS asselineau,
       SUM(voixdupontaignan) AS dupontaignan,
-      SUM(voixmlepen) AS mlepen,
+      SUM(voixmlepen) AS le_pen,
       SUM(voixt2macron) AS t2macron,
-      SUM(voixt2mlepen) AS t2mlepen
+      SUM(voixt2mlepen) AS t2le_pen
     FROM 
-      source
+      {{ ref('stg_projet_lewagon__pres2017') }}
     GROUP BY code_departement
   )
   SELECT 
@@ -44,24 +40,22 @@ renamed AS (
       STRUCT('fillon' AS column_name, fillon AS value),
       STRUCT('asselineau' AS column_name, asselineau AS value),
       STRUCT('dupontaignan' AS column_name, dupontaignan AS value),
-      STRUCT('mlepen' AS column_name, mlepen AS value)
+      STRUCT('le_pen' AS column_name, le_pen AS value)
     ]) x,
     UNNEST([ 
-      STRUCT('t2macron' AS column_name, t2macron AS value),
-      STRUCT('t2mlepen' AS column_name, t2mlepen AS value)
+      STRUCT('macron' AS column_name, t2macron AS value),
+      STRUCT('le_pen' AS column_name, t2le_pen AS value)
     ]) x2
   WHERE 
     x.value = GREATEST(
       arthaud, poutou, melenchon, 
       hamon, cheminade, lassalle, 
       macron, fillon, asselineau, 
-      dupontaignan, mlepen
+      dupontaignan, le_pen
     )
     AND 
     x2.value = GREATEST(
       t2macron, 
-      t2mlepen
+      t2le_pen
     )
-)
-SELECT * 
-FROM renamed
+

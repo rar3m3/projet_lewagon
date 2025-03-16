@@ -80,7 +80,7 @@ WITH agg_table AS (
 
 SELECT
     code_departement,
-    annee,
+    PARSE_DATE('%Y',annee) AS annee,
     population
 FROM agg_table
 UNPIVOT (population for annee in

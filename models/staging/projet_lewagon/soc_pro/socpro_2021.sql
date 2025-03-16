@@ -1,9 +1,6 @@
-{{ config(
-    materialized='table'
-) }}
 
 SELECT
-    CAST("2021-01-01" AS date) AS annee,
+        CAST("2021-01-01" AS date) AS annee,
         `Region`,
         `Departement`,
         `Libelle_de_departement`,

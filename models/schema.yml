@@ -4,6 +4,26 @@ sources:
   - name: projet_lewagon
     schema: projet_lewagon
     tables:
+      - name: abstention_18_29_selon_dipl_et_etudiants_clean
+        identifier: abstention_18_29_selon_dipl_et_etudiants_clean
+      - name: abstention_systematique_selon_age_et_diplome
+        identifier: abstention_systematique_selon_age_et_diplome
+      - name: comportement_vote_selon_groupe_socio_pro
+        identifier: comportement_vote_selon_groupe_socio_pro
+      - name: evolution_annee_retraites_entre_1999_et_2021
+        identifier: evolution_annee_retraites_entre_1999_et_2021
+      - name: evolution_retraites_1999_a_2021
+        identifier: evolution_retraites_1999_a_2021
+      - name: tendance_vote_global
+        identifier: tendance_vote_global
+      - name: type_vote_selon_age
+        identifier: type_vote_selon_age
+      - name: type_vote_selon_diplome
+        identifier: type_vote_selon_diplome
+      - name: vote_system_selon_age_et_diplome
+        identifier: vote_system_selon_age_et_diplome
+      - name: vote_systematique_selon_age_et_lieu
+        identifier: vote_systematique_selon_age_et_lieu
       - name: J_depense
         identifier: J_depense
         description: "Dépenses de Janot présidentiel 2022"

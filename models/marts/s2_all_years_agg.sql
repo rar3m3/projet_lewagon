@@ -50,7 +50,17 @@ UNPIVOT (score for candidat in (macron
 ,le_pen))
 )
 SELECT 
-    *
+    annee,
+    CASE 
+        WHEN sondeur NOT IN ('Résultats', 'Résultats officiels') THEN sondeur
+        ELSE NULL
+    END AS sondeur,
+    candidat,
+    score,
+    CASE 
+        WHEN sondeur IN ('Résultats', 'Résultats officiels') THEN score
+        ELSE NULL
+    END AS resultats
     , CASE 
         ------2002
         WHEN (candidat LIKE "%chirac%" AND annee = "2002-01-01") THEN "Droite"

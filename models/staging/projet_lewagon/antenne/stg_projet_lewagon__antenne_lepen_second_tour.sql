@@ -1,6 +1,4 @@
-
-
-source as (
+WITH source as (
 
     select * from {{ source('projet_lewagon', 'antenne_lepen_second_tour') }}
 

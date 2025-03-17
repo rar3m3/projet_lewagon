@@ -101,7 +101,17 @@ WITH agg_table AS (
     ,zemmour))
 )
 SELECT
-    *
+    annee,
+    CASE 
+        WHEN sondeur NOT IN ('Résultats', 'Résultats officiels') THEN sondeur
+        ELSE NULL
+    END AS sondeur,
+    candidat,
+    score,
+    CASE 
+        WHEN sondeur IN ('Résultats', 'Résultats officiels') THEN score
+        ELSE NULL
+    END AS resultats
     , CASE
         ------2002
         WHEN (candidat LIKE "%laguiller%" AND annee = "2002-01-01") THEN "Extreme Gauche"

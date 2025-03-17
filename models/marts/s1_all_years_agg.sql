@@ -153,7 +153,7 @@ SELECT
         WHEN (candidat LIKE "%lassalle%" AND annee = "2017-01-01") THEN "Centre"
         WHEN (candidat LIKE "%fillon%" AND annee = "2017-01-01") THEN "Droite"
         WHEN (candidat LIKE "%dupont_aignan%" AND annee = "2017-01-01") THEN "Droite"
-        WHEN (candidat LIKE "%asselineau%" AND annee = "2017-01-01") THEN "Autre"
+        WHEN (candidat LIKE "%asselineau%" AND annee = "2017-01-01") THEN "Droite"
         WHEN (candidat LIKE "%le_pen%" AND annee = "2017-01-01") THEN "Extreme Droite"
         WHEN (candidat LIKE "%cheminade%" AND annee = "2017-01-01") THEN "Autre"
         -------2022

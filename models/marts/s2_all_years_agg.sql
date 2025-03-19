@@ -87,7 +87,7 @@ SELECT
         WHEN (candidat LIKE "%royal%" AND annee = "2007-01-01") THEN "PS"
         -------2012
         WHEN (candidat LIKE "%hollande%" AND annee = "2012-01-01") THEN "PS"
-        WHEN (candidat LIKE "%sarkozy%" AND annee = "2012-01-01") THEN "FN/RN"
+        WHEN (candidat LIKE "%sarkozy%" AND annee = "2012-01-01") THEN "UMP"
         -------2017
         WHEN (candidat LIKE "%macron%" AND annee = "2017-01-01") THEN "EM/LREM"
         WHEN (candidat LIKE "%_pen%" AND annee = "2017-01-01") THEN "FN/RN"
